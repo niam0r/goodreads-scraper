@@ -1,4 +1,5 @@
 require 'open-uri'
+
 Quote.destroy_all
 puts "Destroyed all quotes"
 
@@ -7,7 +8,7 @@ url = "./app/my_quotes.html"
 doc = Nokogiri::HTML(open(url))
 
 elementList = doc.search('.elementList')
-puts elementList.length
+puts "There's #{elementList.length} quotes"
 
 elementList.each do |element|
   authorOrTitle = element.search('.authorOrTitle').text.strip
@@ -29,8 +30,15 @@ elementList.each do |element|
 
   quote = Quote.create({
     author: authorOrTitle,
-    content: quoteText,
+    content: quoteText.split('//<![CDATA[')[0],
     author_img: img_src
   })
-  p quote
+
+  puts "------------------------------------------------------"
+  # puts "#{quote.author}"
+  puts "#{quote.content}"
+  puts "#{quote.author_img}"
+
 end
+
+
