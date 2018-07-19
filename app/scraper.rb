@@ -9,12 +9,19 @@ puts elementList.length
 
 elementList.each do |element|
   authorOrTitle = element.search('.authorOrTitle').text.strip
+
   quoteText = element.search('.quoteText').text.strip
 
-  if element.search('a > img').attribute('src').defined?
-    img_src =  element.search('a > img')&.attribute('src').value
-  end
+  # is_attribute_defined = element.search('a > img').attribute('src').nil?
+  # p is_attribute_defined
+  # img_src =  element.search('a > img')&.attribute('src').value
 
-  p img_src
+  # p img_src
+  p element.search('a > img').attribute('src').class
+  # if element.search('a > img').attribute('src')
+  #   img_src = element.search('a > img').attribute('src').value
+  # else
+  #   img_src = 'nil'
+  # end
+  # p img_src
 end
-
