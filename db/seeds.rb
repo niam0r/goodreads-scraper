@@ -2,7 +2,8 @@ require 'open-uri'
 Quote.destroy_all
 puts "Destroyed all quotes"
 
-url = "https://www.goodreads.com/quotes/list/61714489-romain-niam0r?utf8=%E2%9C%93&sort=date_added"
+# url = "https://www.goodreads.com/quotes/list/61714489-romain-niam0r?utf8=%E2%9C%93&sort=date_added"
+url = "./app/my_quotes.html"
 doc = Nokogiri::HTML(open(url))
 
 elementList = doc.search('.elementList')
