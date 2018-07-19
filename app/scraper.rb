@@ -17,11 +17,17 @@ elementList.each do |element|
   # img_src =  element.search('a > img')&.attribute('src').value
 
   # p img_src
-  p element.search('a > img').attribute('src').class
+  # p element.search('a > img').attribute('src').class
   # if element.search('a > img').attribute('src')
   #   img_src = element.search('a > img').attribute('src').value
   # else
   #   img_src = 'nil'
   # end
   # p img_src
+
+  quote = Quote.create({
+    author: authorOrTitle,
+    content: quoteText
+  })
+  p quote
 end
