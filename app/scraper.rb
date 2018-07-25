@@ -16,7 +16,10 @@ elementList.each do |element|
 
   author = quoteText.split("\n")[2].tr(',', '')
 
+  author_img = element.search('a > img').empty? ? '' : element.search('a > img').attribute('src').value
+
   book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip
+
 
 
 end
