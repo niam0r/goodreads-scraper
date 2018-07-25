@@ -1,33 +1,22 @@
 require 'open-uri'
 require 'nokogiri'
 
-url = "https://www.goodreads.com/quotes/list/61714489-romain-niam0r?utf8=%E2%9C%93&sort=date_added"
-doc = Nokogiri::HTML(open(url))
+# url = "https://www.goodreads.com/quotes/list/61714489-romain-niam0r?utf8=%E2%9C%93&sort=date_added"
+url = "./app/my_quotes.html"
+doc = Nokogiri::HTML(open(url), nil, Encoding::UTF_8.to_s)
 
 elementList = doc.search('.elementList')
-puts elementList.length
+puts "There's #{elementList.length} quotes"
+
 
 elementList.each do |element|
-  authorOrTitle = element.search('.authorOrTitle').text.strip
+  quoteText = element.search('.quoteText').text.strip.split('//<![CDATA[')[0]
 
-  quoteText = element.search('.quoteText').text.strip
+  quoted = quoteText.split("\n")[0][1...-1]
 
-  # is_attribute_defined = element.search('a > img').attribute('src').nil?
-  # p is_attribute_defined
-  # img_src =  element.search('a > img')&.attribute('src').value
+  author = quoteText.split("\n")[2].tr(',', '')
 
-  # p img_src
-  # p element.search('a > img').attribute('src').class
-  # if element.search('a > img').attribute('src')
-  #   img_src = element.search('a > img').attribute('src').value
-  # else
-  #   img_src = 'nil'
-  # end
-  # p img_src
+  book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip
 
-  quote = Quote.create({
-    author: authorOrTitle,
-    content: quoteText
-  })
-  p quote
+
 end
