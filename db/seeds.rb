@@ -11,38 +11,20 @@ elementList = doc.search('.elementList')
 puts "There's #{elementList.length} quotes"
 
 elementList.each do |element|
-  # authorOrTitle = element.search('.authorOrTitle').text.strip
-
   quoteText = element.search('.quoteText').text.strip.split('//<![CDATA[')[0]
-  quoted = quoteText.split('/n')[0]
-  author_and_book_title = quoteText.split(' ―')[1]
-  # actual_quote = quoteText.split('-')[0]
-  # p actual_quote
 
-  # is_attribute_defined = element.search('a > img').attribute('src').nil?
-  # p is_attribute_defined
-  # img_src =  element.search('a > img')&.attribute('src').value
+  content = quoteText.split("\n")[0][1...-1]
 
-  # p img_src
-  # p element.search('a > img').attribute('src').class
-  # if element.search('a > img').attribute('src')
-  #   img_src = element.search('a > img').attribute('src').value
-  # else
-  #   img_src = 'nil'
-  # end
-  # p img_src
+  author = quoteText.split("\n")[2].tr(',', '')
+
+  author_img = element.search('a > img').empty? ? '' : element.search('a > img').attribute('src').value
+
+  book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip
 
   quote = Quote.create({
-    content: quoteText,
-    author: author_and_book_title,
-    # author_img: img_src
+    content: content,
+    author: author,
+    author_img: author_img,
+    book: book
   })
-
-  puts "------------------------------------------------------"
-  puts "#{quote.content}"
-  puts "#{quote.author}"
-  # puts "#{quote.author_img}"
-
 end
-
-

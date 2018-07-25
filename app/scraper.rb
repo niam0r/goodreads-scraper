@@ -8,11 +8,10 @@ doc = Nokogiri::HTML(open(url), nil, Encoding::UTF_8.to_s)
 elementList = doc.search('.elementList')
 puts "There's #{elementList.length} quotes"
 
-
 elementList.each do |element|
   quoteText = element.search('.quoteText').text.strip.split('//<![CDATA[')[0]
 
-  quoted = quoteText.split("\n")[0][1...-1]
+  content = quoteText.split("\n")[0][1...-1]
 
   author = quoteText.split("\n")[2].tr(',', '')
 
@@ -20,6 +19,10 @@ elementList.each do |element|
 
   book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip
 
-
-
+  quote = Quote.create({
+    content: content,
+    author: author,
+    author_img: author_img,
+    book: book
+  })
 end
