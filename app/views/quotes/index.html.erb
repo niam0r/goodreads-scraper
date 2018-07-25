@@ -1,5 +1,8 @@
 <% @quotes.each do |quote| %>
-  <br/>
-  <%= quote.content %>
+  <br>
+  <i class="fas fa-quote-left"></i> <%= quote.content %> <i class="fas fa-quote-right"></i>
+  <br>
+  <img src="<%= quote.author_img %>" alt="<%= quote.author %>">
+  <%= quote.author %>, <%= quote.book %> <i class="fas fa-book"></i>
   <br/>
 <% end %>
