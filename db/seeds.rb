@@ -28,7 +28,3 @@ elementList.each do |element|
     book: book
   })
 end
-
-# def clean(text)
-#   text.gsub(/â\u0080/, -)
-# end
