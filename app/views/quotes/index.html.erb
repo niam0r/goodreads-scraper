@@ -3,6 +3,7 @@
   <i class="fas fa-quote-left"></i> <%= quote.content %> <i class="fas fa-quote-right"></i>
   <%= link_to quote_path(quote),
     method: :delete,
+    remote: true,
     data: { confirm: "Are you sure?" } do %>
     <h6><i class="fas fa-trash-alt"></i></h6>
   <% end %>
