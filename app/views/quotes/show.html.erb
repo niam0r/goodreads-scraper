@@ -1,2 +1,9 @@
 <%= @quote.content %>
+<%= link_to quote_path(@quote),
+  method: :delete,
+  data: { confirm: "Are you sure?" } do %>
+  <h6><i class="fas fa-trash-alt"></i></h6>
+<% end %>
+<br>
+<%= link_to "Back to all quotes", quotes_path  %>
 

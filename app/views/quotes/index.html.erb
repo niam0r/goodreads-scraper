@@ -1,6 +1,11 @@
 <% @quotes.each do |quote| %>
   <br>
   <i class="fas fa-quote-left"></i> <%= quote.content %> <i class="fas fa-quote-right"></i>
+  <%= link_to quote_path(quote),
+    method: :delete,
+    data: { confirm: "Are you sure?" } do %>
+    <h6><i class="fas fa-trash-alt"></i></h6>
+  <% end %>
   <br>
   <img src="<%= quote.author_img %>" alt="<%= quote.author %>">
   <%= quote.author %>, <%= quote.book %> <i class="fas fa-book"></i>

@@ -10,6 +10,7 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
+    redirect_to quotes_path
   end
 
   private
