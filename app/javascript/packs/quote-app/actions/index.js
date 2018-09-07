@@ -4,7 +4,7 @@ export const REMOVE_QUOTE = "REMOVE_QUOTE";
 
 const BASE_URL = "http://localhost:3000/api/v1";
 
-export function fetchCars() {
+export function fetchQuotes() {
   const url = `${BASE_URL}/quotes`;
   const promise = fetch(url).then(res => res.json());
 
@@ -14,5 +14,14 @@ export function fetchCars() {
   };
 }
 
+export function fetchQuote(id) {
+  const url = `${BASE_URL}/quotes/${id}`;
+  const promise = fetch(url).then(res => res.json());
+
+  return {
+    type: FETCH_QUOTE,
+    payload: promise
+  };
+}
 
 

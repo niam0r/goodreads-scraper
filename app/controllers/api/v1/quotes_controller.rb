@@ -5,4 +5,9 @@ class Api::V1::QuotesController < Api::V1::BaseController
   def index
     @quotes = policy_scope(Quote)
   end
+
+  def show
+    @quote = policy_scope(Quote)
+    # @quote = Quote.find(params[:id])
+  end
 end
