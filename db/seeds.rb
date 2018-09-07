@@ -15,11 +15,13 @@ elementList.each do |element|
 
   content = quoteText.split("\n")[0][1...-1]
 
-  author = quoteText.split("\n")[2].tr(',', '').strip
+  # author = quoteText.split("\n")[2].tr(',', '').strip
+  author = element.search('.authorOrTitle').to_s.split("\n")[1].strip.gsub(',', '')
 
   author_img = element.search('a > img').empty? ? '' : element.search('a > img').attribute('src').value
 
-  book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip
+  # book = quoteText.split("\n")[4].nil? ? '' : quoteText.split("\n")[4].strip
+  book = element.search('a.authorOrTitle').text
 
   quote = Quote.create({
     content: content,
@@ -28,3 +30,4 @@ elementList.each do |element|
     book: book
   })
 end
+
