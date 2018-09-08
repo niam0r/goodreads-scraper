@@ -1,5 +1,6 @@
 class Api::V1::QuotesController < Api::V1::BaseController
   before_action :set_quote, only: [ :show ]
+
   # def pundit_user
   #   User.find_by_other_means
   # end
@@ -8,7 +9,6 @@ class Api::V1::QuotesController < Api::V1::BaseController
   end
 
   def show
-    # @quote = policy_scope(Quote)
   end
 
   private
