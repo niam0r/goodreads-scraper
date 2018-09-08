@@ -27,15 +27,22 @@ const reducers = combineReducers({
   quotes: quotesReducer
 });
 
-const middlewares =
-
 const quotesContainer = document.getElementById('quotes');
-const initialState = { quotes: JSON.parse(quotesContainer.data.quotes) };
+const initialState = { quotes: JSON.parse(quotesContainer.dataset.quotes) };
+
+// middlewares
+const middlewares = applyMiddleware(reduxPromise, logger);
 const store = createStore(reducers, initialState, middlewares);
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="Quote" />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history}>
+      <Switch>
+        <Route path="/" exact component={QuotesIndex} />
+        <Route path="/quotes/:id" component={QuotesShow} />
+      </Switch>
+    </Router>
+  </Provider>,
+  document.getElementById('quotes')
+);
+
