@@ -1,4 +1,4 @@
-import { FETCH_QUOTES, FETCH_QUOTES, REMOVE_QUOTE } from '../actions';
+import { FETCH_QUOTES, FETCH_QUOTE, REMOVE_QUOTE } from '../actions';
 
 export default function (state = null, action) {
   switch (action.type) {

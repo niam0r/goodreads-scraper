@@ -19,25 +19,19 @@ import QuotesShow from './containers/quotes_show';
 // state and reducers
 import quotesReducer from './reducers/quotes_reducer';
 
-const initialState = {
-  quotes: []
-};
+// const initialState = {
+//   quotes: []
+// };
 
 const reducers = combineReducers({
   quotes: quotesReducer
 });
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+const middlewares =
 
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: PropTypes.string
-}
+const quotesContainer = document.getElementById('quotes');
+const initialState = { quotes: JSON.parse(quotesContainer.data.quotes) };
+const store = createStore(reducers, initialState, middlewares);
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
