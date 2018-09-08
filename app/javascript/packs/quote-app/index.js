@@ -5,7 +5,12 @@
 // external modules
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import reduxPromise from 'redux-promise';
+import logger from 'redux-logger';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createHistory as history } from 'history';
 
 // internal modules
 import QuotesIndex from './containers/quotes_index';
@@ -16,9 +21,11 @@ import quotesReducer fomr './reducers/quotes_reducer';
 
 const initialState = {
   quotes: []
-}
+};
 
-const reducers
+const reducers = combineReducers({
+  quotes: quotesReducer
+});
 
 const Hello = props => (
   <div>Hello {props.name}!</div>
