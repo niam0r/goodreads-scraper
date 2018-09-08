@@ -17,7 +17,7 @@ import QuotesIndex from './containers/quotes_index';
 import QuotesShow from './containers/quotes_show';
 
 // state and reducers
-import quotesReducer fomr './reducers/quotes_reducer';
+import quotesReducer from './reducers/quotes_reducer';
 
 const initialState = {
   quotes: []
