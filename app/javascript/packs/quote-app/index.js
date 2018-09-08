@@ -14,6 +14,12 @@ import QuotesShow from './containers/quotes_show';
 // state and reducers
 import quotesReducer fomr './reducers/quotes_reducer';
 
+const initialState = {
+  quotes: []
+}
+
+const reducers
+
 const Hello = props => (
   <div>Hello {props.name}!</div>
 )
