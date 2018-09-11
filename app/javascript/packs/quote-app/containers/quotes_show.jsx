@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { fetchQuote } from '../actions';
 
@@ -18,7 +18,17 @@ class QuotesShow extends Component {
     }
     return (
       <div>
-        QuotesShow
+        <Link className="btn btn-primary btn-cta" to="/quotes-react/">
+          Back to all quotes
+        </Link>
+        <div className="row" key={quote.id}>
+          <div className="col-xs-10 col-xs-offset-1">
+            <img src="" alt=""/>
+            <h3>{quote.author} - {quote.book}</h3>
+            <p>{quote.content}</p>
+
+          </div>
+        </div>
       </div>
     );
   }
