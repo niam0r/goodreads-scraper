@@ -23,8 +23,10 @@ class QuotesShow extends Component {
         </Link>
         <div className="row" key={quote.id}>
           <div className="col-xs-10 col-xs-offset-1">
-            <img src="" alt=""/>
-            <h3>{quote.author} - {quote.book}</h3>
+            <span>
+              <img src={quote.author_img}/>
+              <h3>{quote.author} - {quote.book}</h3>
+            </span>
             <p>{quote.content}</p>
 
           </div>
