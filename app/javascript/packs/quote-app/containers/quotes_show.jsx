@@ -26,7 +26,7 @@ class QuotesShow extends Component {
             <p>{quote.content}</p>
           </blockquote>
           <div className="avatar-author-book">
-            <div className="avatar-large"><img src={quote.author_img}/></div>
+            <img className="avatar-large" src={quote.author_img}/>
             <div className="author-book">
               <p><cite><strong>{quote.author}</strong></cite></p>
               <p><cite>{quote.book}</cite></p>
