@@ -1,9 +1,22 @@
-<%= @quote.content %>
-<%= link_to quote_path(@quote),
-  method: :delete,
-  data: { confirm: "Are you sure?" } do %>
-  <h6><i class="fas fa-trash-alt"></i></h6>
-<% end %>
-<br>
-<%= link_to "Back to all quotes", quotes_path  %>
+<section class="quote">
+  <blockquote>
+    <p><%= @quote.content %></p>
+  </blockquote>
+  <div class="avatar-author-book">
+    <img class="avatar-large" src="<%= @quote.author_img %>"/>
+    <div class="author-book">
+      <p><cite><strong><%= @quote.author %></strong></cite></p>
+      <p><cite><%= @quote.book %></cite></p>
+    </div>
+    <%= link_to quote_path(@quote),
+      method: :delete,
+      data: { confirm: "Are you sure?" } do %>
+      <h6><i class="fas fa-trash-alt"></i></h6>
+    <% end %>
+  </div>
+</section>
+
+<div class="text-center">
+  <%= link_to "Back to all quotes", quotes_path, {class: "btn btn-primary btn-cta"}  %>
+</div>
 

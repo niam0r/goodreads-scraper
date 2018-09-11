@@ -10,6 +10,9 @@
           <p><cite><strong><%= quote.author %></strong></cite></p>
           <p><cite><%= quote.book %></cite></p>
         </div>
+        <%= link_to quote_path(quote) do %>
+          <strong><i class="fas fa-link"></i></strong>
+        <% end %>
         <%#= link_to quote_path(quote),
           method: :delete,
           remote: true do %>

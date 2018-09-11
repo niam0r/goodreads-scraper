@@ -18,9 +18,6 @@ class QuotesShow extends Component {
     }
     return (
       <div>
-        <Link className="btn btn-primary btn-cta" to="/quotes-react/">
-          Back to all quotes
-        </Link>
         <section className="quote">
           <blockquote>
             <p>{quote.content}</p>
@@ -33,6 +30,11 @@ class QuotesShow extends Component {
             </div>
           </div>
         </section>
+        <div className="text-center">
+          <Link className="btn btn-primary btn-cta" to="/quotes-react/">
+            Back to all quotes
+          </Link>
+        </div>
       </div>
     );
   }
