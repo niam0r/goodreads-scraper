@@ -1,15 +1,21 @@
 <% @quotes.each do |quote| %>
-  <br>
   <div id="<%= quote.id %>">
-    <i class="fas fa-quote-left"></i> <%= quote.content %> <i class="fas fa-quote-right"></i>
-    <br>
-    <img src="<%= quote.author_img %>" alt="<%= quote.author %>">
-    <%= quote.author %>, <%= quote.book %> <i class="fas fa-book"></i>
-    <%= link_to quote_path(quote),
-      method: :delete,
-      remote: true do %>
-      <h6><i class="fas fa-trash-alt"></i></h6>
-    <% end %>
+    <section class="quote">
+      <blockquote>
+        <p><%= quote.content %></p>
+      </blockquote>
+      <div class="avatar-author-book">
+        <img class="avatar-large" src="<%= quote.author_img %>"/>
+        <div class="author-book">
+          <p><cite><strong><%= quote.author %></strong></cite></p>
+          <p><cite><%= quote.book %></cite></p>
+        </div>
+        <%#= link_to quote_path(quote),
+          method: :delete,
+          remote: true do %>
+          <!-- <h6><i class="fas fa-trash-alt"></i></h6> -->
+        <%# end %>
+      </div>
+    </section>
    </div>
-  <br/>
 <% end %>
