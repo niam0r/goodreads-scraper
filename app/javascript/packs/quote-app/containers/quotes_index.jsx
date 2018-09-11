@@ -9,19 +9,22 @@ class QuotesIndex extends Component {
   renderQuotes() {
     return this.props.quotes.map((quote) => {
       return (
-        <Link to={`/quotes/${quote.id}`} key={quote.id}>
-          <div className="quote-item">
+        <div className="row" key={quote.id}>
+          <div className="col-xs-10 col-xs-offset-1">
             <h3>{quote.author} - {quote.book}</h3>
             <p>{quote.content}</p>
+            <Link to={`/quotes/${quote.id}`} >
+              <i className="fas fa-link"></i>
+            </Link>
           </div>
-        </Link>
+        </div>
       );
     });
   }
 
   render() {
     return (
-      <div>
+      <div className='container'>
         {this.renderQuotes()}
       </div>
     );
