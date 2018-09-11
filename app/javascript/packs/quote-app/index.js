@@ -38,8 +38,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={QuotesIndex} />
-        <Route path="/quotes/:id" component={QuotesShow} />
+        <Route path="/quotes-react/" exact component={QuotesIndex} />
+        <Route path="/quotes-react/:id" component={QuotesShow} />
       </Switch>
     </Router>
   </Provider>,

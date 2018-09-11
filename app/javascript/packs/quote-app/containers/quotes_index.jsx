@@ -13,7 +13,7 @@ class QuotesIndex extends Component {
           <div className="col-xs-10 col-xs-offset-1">
             <h3>{quote.author} - {quote.book}</h3>
             <p>{quote.content}</p>
-            <Link to={`/quotes/${quote.id}`} >
+            <Link to={`/quotes-react/${quote.id}`} >
               <i className="fas fa-link"></i>
             </Link>
           </div>
