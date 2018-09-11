@@ -1,7 +1,16 @@
-<div class="text-center">
-  <%= link_to "Classic rails index page", quotes_path %>
-  <br>
-  <%= link_to "React rails index page", "/quotes-react" %>
-  <br>
-  <%= link_to "Rails API index page", "/api/v1/quotes" %>
-</div>
+<section class="quote">
+  <blockquote>
+    <p>Personal project scraping a Goodreads's user quotes and building an api with the data. Also using React to display it on the front end.</p>
+    <p>For now the database seed is only scraping the quotes from <a href="https://goodreads.com/niam0r" target="_blank">my Goodreads profile</a> but I'm going to change it so it can scrape any Goodreads user's quotes</p>
+  </blockquote>
+  <div class="avatar-author-book">
+    <!-- <img class="avatar-large" src="https://niam0r.github.io/profile/images/r.jpg"/> -->
+    <div class="author-book">
+      <h4><cite><strong><%= link_to "Classic rails index page", quotes_path %></strong></cite></h4>
+      <h4><cite><strong><%= link_to "React rails index page", "/quotes-react" %></strong></cite></h4>
+      <h4><cite><strong><%= link_to "Rails API index page", "/api/v1/quotes" %></strong></cite></h4>
+
+    </div>
+
+  </div>
+</section>
