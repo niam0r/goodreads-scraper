@@ -21,16 +21,18 @@ class QuotesShow extends Component {
         <Link className="btn btn-primary btn-cta" to="/quotes-react/">
           Back to all quotes
         </Link>
-        <div className="row" key={quote.id}>
-          <div className="col-xs-10 col-xs-offset-1">
-            <span>
-              <img src={quote.author_img}/>
-              <h3>{quote.author} - {quote.book}</h3>
-            </span>
+        <section className="quote">
+          <blockquote>
             <p>{quote.content}</p>
-
+          </blockquote>
+          <div className="avatar-author-book">
+            <div className="avatar-large"><img src={quote.author_img}/></div>
+            <div className="author-book">
+              <p><cite><strong>{quote.author}</strong></cite></p>
+              <p><cite>{quote.book}</cite></p>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     );
   }

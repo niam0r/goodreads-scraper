@@ -11,8 +11,11 @@ class QuotesIndex extends Component {
       return (
         <div className="row" key={quote.id}>
           <div className="col-xs-10 col-xs-offset-1">
-            <h3>{quote.author} - {quote.book}</h3>
-            <p>{quote.content}</p>
+            <i className="fas fa-quote-left"></i>
+            {quote.content}
+            <i className="fas fa-quote-right"></i>
+
+            <img src={quote.author_img}/> <strong>{quote.author}</strong> - {quote.book}
             <Link to={`/quotes-react/${quote.id}`} >
               <i className="fas fa-link"></i>
             </Link>
@@ -25,7 +28,9 @@ class QuotesIndex extends Component {
   render() {
     return (
       <div className='container'>
+        <br/>
         {this.renderQuotes()}
+        <br/>
       </div>
     );
   }
