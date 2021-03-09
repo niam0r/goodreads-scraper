@@ -32,4 +32,4 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem "nokogiri", "~> 1.10"
+gem "nokogiri", "~> 1.11"
