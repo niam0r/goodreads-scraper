@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
-    "bootstrap": "3",
+    "bootstrap": "5",
     "history": "^4.7.2",
     "jquery": "^3.5.0",
     "prop-types": "^15.6.2",
